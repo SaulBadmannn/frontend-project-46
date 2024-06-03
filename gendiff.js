@@ -2,7 +2,6 @@
 import { Command } from 'commander';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import genDiff from './src/index.js';
-import parseFileToObj from './parser.js';
 
 const program = new Command();
 
@@ -13,10 +12,7 @@ program
   .argument('<filepath1>')
   .argument('<filepath2>')
   .action((filepath1, filepath2) => {
-    const dataFile1 = parseFileToObj(filepath1);
-    const dataFile2 = parseFileToObj(filepath2);
-
-    const result = genDiff(dataFile1, dataFile2);
+    const result = genDiff(filepath1, filepath2);
 
     console.log(result);
   });

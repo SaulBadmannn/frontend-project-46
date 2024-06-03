@@ -1,6 +1,10 @@
 import _ from 'lodash';
+import parseFileToObj from '../parser.js';
 
-const genDiff = (dataFile1, dataFile2) => {
+const genDiff = (filepath1, filepath2) => {
+  const dataFile1 = parseFileToObj(filepath1);
+  const dataFile2 = parseFileToObj(filepath2);
+
   const keysFile1 = Object.keys(dataFile1);
   const keysFile2 = Object.keys(dataFile2);
 
